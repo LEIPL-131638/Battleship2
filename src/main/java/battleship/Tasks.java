@@ -23,6 +23,7 @@ public class Tasks {
 	/**
 	 * Strings to be used by the user
 	 */
+	private static final String playerName = "Player";
 	private static final String AJUDA = "ajuda";
 	private static final String GERAFROTA = "gerafrota";
 	private static final String LEFROTA = "lefrota";
@@ -32,6 +33,7 @@ public class Tasks {
 	private static final String MAPA = "mapa";
 	private static final String STATUS = "estado";
 	private static final String SIMULA = "simula";
+	private static final String SCOREBOARD = "scoreboard";
 
 	/**
 	 * This task also tests the fighting element of a round of three shots
@@ -39,7 +41,8 @@ public class Tasks {
 	public static void menu() {
 
 		IFleet myFleet = null;
-		IGame game = null;
+		Game game = null;
+		Scoreboard scoreboard = new Scoreboard();
 		menuHelp();
 
 		System.out.print("> ");
@@ -73,6 +76,7 @@ public class Tasks {
 						game.printMyBoard(true, false);
 
 						if (game.getRemainingShips() == 0) {
+							scoreboard.saveGame(game, playerName, "Vitória");
 							game.over();
 							System.exit(0);
 						}
@@ -101,6 +105,9 @@ public class Tasks {
 					if (game != null)
 						game.printMyBoard(true, true);
 					break;
+				case SCOREBOARD:
+					scoreboard.showScores();
+					break;
                 case AJUDA:
                     menuHelp();
                     break;
@@ -126,6 +133,7 @@ public class Tasks {
 		System.out.println("- " + RAJADA + ": Realiza uma rajada de disparos.");
 		System.out.println("- " + SIMULA + ": Simula um jogo completo.");
 		System.out.println("- " + TIROS + ": Lista os tiros válidos realizados (* = tiro em navio, o = tiro na água)");
+		System.out.println("- " + SCOREBOARD + ": Mostra os jogos anteriores.");
 		System.out.println("- " + DESISTIR + ": Encerra o jogo.");
 		System.out.println("===============================================================");
 	}
