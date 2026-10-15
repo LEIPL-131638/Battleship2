@@ -1,6 +1,8 @@
 package battleship;
 
 import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,6 +36,8 @@ public class Tasks {
 	private static final String STATUS = "estado";
 	private static final String SIMULA = "simula";
 	private static final String SCOREBOARD = "scoreboard";
+	private static final String EXPORTAPDF = "exportapdf";
+	private static final String PDF_FILE = "jogadas.pdf";
 
 	/**
 	 * This task also tests the fighting element of a round of three shots
@@ -108,6 +112,17 @@ public class Tasks {
 				case SCOREBOARD:
 					scoreboard.showScores();
 					break;
+				case EXPORTAPDF:
+					if (game != null) {
+						try {
+							File pdf = new PdfExporter().export(game, PDF_FILE);
+							System.out.println("Histórico das jogadas exportado para " + pdf.getAbsolutePath());
+						} catch (IOException e) {
+							System.out.println("Não foi possível exportar o PDF: " + e.getMessage());
+						}
+					} else
+						System.out.println("Primeiro tem de gerar ou ler uma frota.");
+					break;
                 case AJUDA:
                     menuHelp();
                     break;
@@ -134,6 +149,7 @@ public class Tasks {
 		System.out.println("- " + SIMULA + ": Simula um jogo completo.");
 		System.out.println("- " + TIROS + ": Lista os tiros válidos realizados (* = tiro em navio, o = tiro na água)");
 		System.out.println("- " + SCOREBOARD + ": Mostra os jogos anteriores.");
+		System.out.println("- " + EXPORTAPDF + ": Exporta o histórico das jogadas para PDF.");
 		System.out.println("- " + DESISTIR + ": Encerra o jogo.");
 		System.out.println("===============================================================");
 	}
