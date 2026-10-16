@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 
-import net.time4j.PlainTime;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -48,7 +47,6 @@ public class Tasks {
 		IFleet myFleet = null;
 		Game game = null;
 		Scoreboard scoreboard = new Scoreboard();
-		Clock clock = new Clock();
 		menuHelp();
 
 		System.out.print("> ");
@@ -78,8 +76,6 @@ public class Tasks {
 				case RAJADA:
 					if (game != null) {
 						game.readEnemyFire(in);
-						clock.endClock();
-						clock.showLastPlay();
 						myFleet.printStatus();
 						game.printMyBoard(true, false);
 
@@ -133,7 +129,6 @@ public class Tasks {
 				default:
 					System.out.println("Que comando é esse??? Repete ...");
 			}
-			clock.startClock();
 			System.out.print("> ");
 			command = in.next();
 		}
