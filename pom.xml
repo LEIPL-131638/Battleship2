@@ -77,6 +77,23 @@
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>net.time4j</groupId>
+			<artifactId>time4j-base</artifactId>
+			<version>5.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.time4j</groupId>
+			<artifactId>time4j-sqlxml</artifactId>
+			<version>5.9.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.time4j</groupId>
+			<artifactId>time4j-tzdata</artifactId>
+			<version>5.0-2022a</version>
+		</dependency>
+
 		<!-- Spring Boot REST server (includes Jackson, embedded Tomcat) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
