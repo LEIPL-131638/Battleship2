@@ -47,6 +47,7 @@ public class Tasks {
 		IFleet myFleet = null;
 		Game game = null;
 		Scoreboard scoreboard = new Scoreboard();
+		Clock clock = new Clock();
 		menuHelp();
 
 		System.out.print("> ");
@@ -76,6 +77,8 @@ public class Tasks {
 				case RAJADA:
 					if (game != null) {
 						game.readEnemyFire(in);
+						clock.endClock();
+						clock.showLastPlay();
 						myFleet.printStatus();
 						game.printMyBoard(true, false);
 
@@ -129,6 +132,7 @@ public class Tasks {
 				default:
 					System.out.println("Que comando é esse??? Repete ...");
 			}
+			clock.startClock();
 			System.out.print("> ");
 			command = in.next();
 		}
