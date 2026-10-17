@@ -37,6 +37,7 @@ public class Tasks {
 	private static final String SIMULA = "simula";
 	private static final String SCOREBOARD = "scoreboard";
 	private static final String EXPORTAPDF = "exportapdf";
+	private static final String GRAFICO = "grafico";
 	private static final String PDF_FILE = "jogadas.pdf";
 
 	/**
@@ -126,6 +127,12 @@ public class Tasks {
 					} else
 						System.out.println("Primeiro tem de gerar ou ler uma frota.");
 					break;
+					case GRAFICO:
+						if (game != null) {
+							BoardGui.showBoard(game);
+						} else
+							System.out.println("Primeiro tem de gerar ou ler uma frota.");
+					break;
                 case AJUDA:
                     menuHelp();
                     break;
@@ -154,6 +161,7 @@ public class Tasks {
 		System.out.println("- " + TIROS + ": Lista os tiros válidos realizados (* = tiro em navio, o = tiro na água)");
 		System.out.println("- " + SCOREBOARD + ": Mostra os jogos anteriores.");
 		System.out.println("- " + EXPORTAPDF + ": Exporta o histórico das jogadas para PDF.");
+		System.out.println("- " + GRAFICO + ": Mostra a visualização gráfica do tabuleiro.");
 		System.out.println("- " + DESISTIR + ": Encerra o jogo.");
 		System.out.println("===============================================================");
 	}
