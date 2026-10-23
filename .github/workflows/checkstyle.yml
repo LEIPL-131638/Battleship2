@@ -1,0 +1,25 @@
+name: Checkstyle Quality Gate
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Executar Checkstyle CLI
+        run: |
+          wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.12.5/checkstyle-10.12.5-all.jar -O checkstyle.jar
+          java -jar checkstyle.jar -c Checkstyle/checkstyle-131638.xml src/
