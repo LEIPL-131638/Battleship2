@@ -14,7 +14,7 @@ import java.util.Objects;
 
 public abstract class Ship implements IShip
 {
-	private String playerName = "playerName";
+	private String playerName="playerName";
 	/**
 	 * The constant GALEAO.
 	 */
