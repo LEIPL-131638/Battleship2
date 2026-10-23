@@ -11,8 +11,10 @@ import java.util.Objects;
 /**
  * The type Ship.
  */
+
 public abstract class Ship implements IShip
 {
+	private String playerName;
 	/**
 	 * The constant GALEAO.
 	 */
