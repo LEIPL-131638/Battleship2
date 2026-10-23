@@ -1,0 +1,8 @@
+name: "profile-131638"
+baseProfile: "empty"
+inspections:
+  - inspection: "MethodWithTooManyLines"
+    enabled: true
+    severity: "WARNING"
+    options:
+      m_limit: 20
