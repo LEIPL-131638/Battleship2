@@ -13,3 +13,4 @@ jobs:
           reporter: github-pr-review
           level: warning
           fail_level: 'any'
+          checkstyle_config: '/Checkstyle/checkstyle-130484.xml'
