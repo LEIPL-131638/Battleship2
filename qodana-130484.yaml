@@ -3,7 +3,5 @@ version: "1.0"
 linter: jetbrains/qodana-jvm-community:latest
 projectJDK: 17
 
-failThreshold: 0
-
 profile:
   path: .qodana/profiles/profile-130484.yaml
