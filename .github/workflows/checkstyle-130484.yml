@@ -1,0 +1,15 @@
+name: checkstyle-130484.yml
+on: pull_request
+
+jobs:
+  checkstyle:
+    name: runner / checkstyle
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dbelyaev/action-checkstyle@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          level: warning
+          fail_level: 'any'
