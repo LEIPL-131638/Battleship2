@@ -1,7 +1,7 @@
 version: "1.0"
 
 linter: jetbrains/qodana-jvm-community:latest
-projectSDK: 17
+projectJDK: 17
 
 failThreshold: 0
 
