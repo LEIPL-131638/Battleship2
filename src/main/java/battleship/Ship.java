@@ -367,12 +367,12 @@ public abstract class Ship implements IShip
      * @see battleship.IShip#tooCloseTo(battleship.IPosition)
      */
     @Override
-    public boolean tooCloseTo(IPosition pos)
+    public boolean tooCloseTo(IPosition P1)
     {
-		assert pos != null;
+		assert P1 != null;
 
 		for (int i = 0; i < this.getSize(); i++)
-			if (getPositions().get(i).isAdjacentTo(pos))
+			if (getPositions().get(i).isAdjacentTo(P1))
 				return true;
 		return false;
     }
