@@ -22,6 +22,9 @@ public class Tasks {
 	 */
 	private static final String GOODBYE_MESSAGE = "Bons ventos!";
 
+	//test checkstyle
+	private static final String goodbyeMessage = "Bons ventos!";
+
 	/**
 	 * Strings to be used by the user
 	 */
@@ -39,6 +42,11 @@ public class Tasks {
 	private static final String EXPORTAPDF = "exportapdf";
 	private static final String GRAFICO = "grafico";
 	private static final String PDF_FILE = "jogadas.pdf";
+
+	//test checkstyle
+	public void Test() {
+		System.out.println("teste");
+	}
 
 	/**
 	 * This task also tests the fighting element of a round of three shots
