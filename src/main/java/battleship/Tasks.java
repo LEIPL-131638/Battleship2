@@ -22,6 +22,9 @@ public class Tasks {
 	 */
 	private static final String GOODBYE_MESSAGE = "Bons ventos!";
 
+	//teste checkstyle
+	private static final int maxShips = 1;
+
 	/**
 	 * Strings to be used by the user
 	 */
