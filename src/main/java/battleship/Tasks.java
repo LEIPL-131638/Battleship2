@@ -43,6 +43,11 @@ public class Tasks {
 	private static final String GRAFICO = "grafico";
 	private static final String PDF_FILE = "jogadas.pdf";
 
+	//teste checkstyle
+	public void test(int V2) {
+		System.out.println("teste");
+	}
+
 	/**
 	 * This task also tests the fighting element of a round of three shots
 	 */
