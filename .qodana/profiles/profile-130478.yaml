@@ -1,0 +1,9 @@
+# 130478 - Dinis Fernandes
+profile:
+  base:
+    name: empty
+  inspections:
+    - inspection: ClassWithTooManyDependents
+      enabled: true
+      options:
+        limit: 7
