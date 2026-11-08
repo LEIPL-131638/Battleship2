@@ -26,7 +26,7 @@ public class Tasks {
 	 * Strings to be used by the user
 	 */
 	private static final String playerName = "Player";
-	private static final int maxShips = 11;
+	private static final int MAX_SHIPS = 11;
 	private static final String AJUDA = "ajuda";
 	private static final String GERAFROTA = "gerafrota";
 	private static final String LEFROTA = "lefrota";
