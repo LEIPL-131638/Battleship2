@@ -79,32 +79,5 @@ public class BoardGui {
             frame.setVisible(true);
         });
     }
-    
-    public static void Mostrar_Tabuleiro_Erro() {}
-    public static void m01() {}
-    public static void m02() {}
-    public static void m03() {}
-    public static void m04() {}
-    public static void m05() {}
-    public static void m06() {}
-    public static void m07() {}
-    public static void m08() {}
-    public static void m09() {}
-    public static void m10() {}
-    public static void m11() {}
-    public static void m12() {}
-    public static void m13() {}
-    public static void m14() {}
-    public static void m15() {}
-    public static void m16() {}
-    public static void m17() {}
-    public static void m18() {}
-    public static void m19() {}
-    public static void m20() {}
-    public static void m21() {}
-    public static void m22() {}
-    public static void m23() {}
-    public static void m24() {}
-    public static void m25() {}
-    
+
 }
