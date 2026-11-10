@@ -1,6 +1,7 @@
 package battleship;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,22 +56,7 @@ public class BoardGui {
                 grid.add(new JLabel(String.valueOf((char) ('A' + r)), SwingConstants.CENTER));
                 for (int c = 0; c < Game.BOARD_SIZE; c++) {
                     char symbol = map[r][c];
-                    JLabel cell = new JLabel(String.valueOf(symbol), SwingConstants.CENTER);
-                    cell.setOpaque(true);
-                    cell.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-
-                    if (symbol == '#') {
-                        cell.setBackground(new Color(160, 160, 160));
-                    } else if (symbol == '*') {
-                        cell.setBackground(new Color(220, 80, 80));
-                        cell.setForeground(Color.WHITE);
-                    } else if (symbol == 'o') {
-                        cell.setBackground(new Color(100, 160, 210));
-                    } else if (symbol == '-') {
-                        cell.setBackground(new Color(210, 210, 210));
-                    } else {
-                        cell.setBackground(new Color(200, 230, 255));
-                    }
+                    JLabel cell = createStyledCell(symbol);
                     grid.add(cell);
                 }
             }
@@ -78,5 +64,25 @@ public class BoardGui {
             frame.add(grid);
             frame.setVisible(true);
         });
+    }
+
+    private static @NotNull JLabel createStyledCell(char symbol) {
+        JLabel cell = new JLabel(String.valueOf(symbol), SwingConstants.CENTER);
+        cell.setOpaque(true);
+        cell.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+
+        if (symbol == '#') {
+            cell.setBackground(new Color(160, 160, 160));
+        } else if (symbol == '*') {
+            cell.setBackground(new Color(220, 80, 80));
+            cell.setForeground(Color.WHITE);
+        } else if (symbol == 'o') {
+            cell.setBackground(new Color(100, 160, 210));
+        } else if (symbol == '-') {
+            cell.setBackground(new Color(210, 210, 210));
+        } else {
+            cell.setBackground(new Color(200, 230, 255));
+        }
+        return cell;
     }
 }
