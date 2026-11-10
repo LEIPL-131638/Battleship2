@@ -250,7 +250,7 @@ public class Tasks {
 		input = input.toUpperCase();
 
 		// Verificar os dois formatos possíveis: compactos e com espaço
-		if (input.matches("[A-Z]\\d+")) {
+		if (isValidClassicFormat(input)) {
 			char column = input.charAt(0); // Extrair a coluna
 			int row = Integer.parseInt(input.substring(1)); // Extrair a linha
 			return new Position(column, row);
@@ -261,6 +261,10 @@ public class Tasks {
 		} else {
 			throw new IllegalArgumentException("Formato inválido. Use 'A3', 'A 3' ou similar.");
 		}
+	}
+
+	private static boolean isValidClassicFormat(String input) {
+		return input.matches("[A-Z]\\d+");
 	}
 
 }
