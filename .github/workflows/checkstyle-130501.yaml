@@ -1,0 +1,28 @@
+name: checkstyle-130501
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  checkstyle:
+    name: runner / checkstyle (130501)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dbelyaev/action-checkstyle@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: ${{ github.event_name == 'pull_request' && 'github-pr-review' || 'github-check' }}
+          level: error
+          fail_level: 'any'
+          checkstyle_config: 'Checkstyle/checkstyle-130501.xml'

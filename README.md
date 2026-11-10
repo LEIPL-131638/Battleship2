@@ -348,3 +348,9 @@ informação que não possa ser deduzida das respostas anteriores.
 O objetivo é jogar de forma inteligente, consistente e eficiente, utilizando toda a informação acumulada.
 
 Responde sempre de acordo com o protocolo JSON estabelecido pelo programa.
+
+# Projeto Battleship - Testes Unitários
+
+## Integração Contínua (CI)
+Este repositório utiliza **GitHub Actions** para automatizar o processo de build e execução de testes unitários com Apache Maven e JUnit 6 a cada `push` ou `pull request`.
+

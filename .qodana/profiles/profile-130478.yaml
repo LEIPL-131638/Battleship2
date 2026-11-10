@@ -1,0 +1,9 @@
+# 130478 - Dinis Fernandes
+name: "profile-130478"
+baseProfile: "empty"
+inspections:
+  - inspection: "ClassWithTooManyDependents"
+    enabled: true
+    severity: "WARNING"
+    options:
+      limit: 7

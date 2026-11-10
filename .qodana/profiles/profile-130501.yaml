@@ -1,0 +1,14 @@
+profile:
+  base:
+    name: empty
+  inspections:
+    - inspection: MethodCount
+      enabled: true
+      options:
+        m_limit: 25
+        ignoreGettersAndSetters: true
+        ignoreOverridingMethods: true
+    - inspection: ClassComplexity
+      enabled: true
+      options:
+        m_limit: 70

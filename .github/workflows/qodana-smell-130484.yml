@@ -1,0 +1,37 @@
+#130484 - Afonso Fornelos
+name: Qodana - Long Parameter List
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  qodana:
+    name: Detect Long Parameter List
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      pull-requests: write
+      checks: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Qodana
+        uses: JetBrains/qodana-action@v2026.2
+        with:
+          args: --config qodana-130484.yaml
+          use-annotations: true
+          post-pr-comment: true
