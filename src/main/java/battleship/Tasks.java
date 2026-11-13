@@ -32,7 +32,7 @@ public class Tasks {
 	private static final String LEFROTA = "lefrota";
 	private static final String DESISTIR = "desisto";
 	private static final String RAJADA = "rajada";
-	private static final String TIROS = "tiros";
+	private static final String TIROS = "tiros	";
 	private static final String MAPA = "mapa";
 	private static final String STATUS = "estado";
 	private static final String SIMULA = "simula";
