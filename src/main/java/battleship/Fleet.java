@@ -136,12 +136,16 @@ public class Fleet implements IFleet
     public List<IShip> getFloatingShips()
     {
 		List<IShip> floatingShips = new ArrayList<IShip>();
-		for (IShip s : ships)
-			if (s.stillFloating())
-				floatingShips.add(s);
+		filterFloatingShips(floatingShips);
 
 		return floatingShips;
     }
+
+	private void filterFloatingShips(List<IShip> floatingShips) {
+		for (IShip s : ships)
+			if (s.stillFloating())
+				floatingShips.add(s);
+	}
 
 	/**
 	 * Gets sunk ships.

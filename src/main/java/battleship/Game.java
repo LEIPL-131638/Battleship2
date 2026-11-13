@@ -73,12 +73,7 @@ public class Game implements IGame
 	}
 
 	private static void printBoardFrame(char[][] map) {
-		System.out.println();
-		System.out.print("    ");
-		for (int col = 0; col < BOARD_SIZE; col++) {
-			System.out.print(" " + (col + 1));
-		}
-		System.out.println();
+		printHeaderColumns();
 
 		System.out.print("   +-");
 		for (int col = 0; col < BOARD_SIZE; col++) {
@@ -99,6 +94,15 @@ public class Game implements IGame
 		for (int col = 0; col < BOARD_SIZE; col++)
 			System.out.print("--");
 		System.out.println("-+");
+	}
+
+	private static void printHeaderColumns() {
+		System.out.println();
+		System.out.print("    ");
+		for (int col = 0; col < BOARD_SIZE; col++) {
+			System.out.print(" " + (col + 1));
+		}
+		System.out.println();
 	}
 
 	/**
