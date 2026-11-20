@@ -1,33 +1,16 @@
 package battleship;
 
-import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
-
-/**
- * Test class for Compass.
- * Author: britoeabreu
- * Date: 2023-10-10
- * Time: 15:30
- * Cyclomatic Complexity for each method:
- * - Constructor: 1
- * - getDirection: 1
- * - toString: 1
- * - charToCompass: 4
- */
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * Test class for enum Compass.
- *
  * Author: ${user.name}
  * Date: 2026-11-20 20:07
- *
  * Cyclomatic Complexity:
  * - Constructor: 1
  * - randomBearing(): 1
@@ -152,7 +135,6 @@ class CompassTest {
 	/**
 	 * Test for charToCompass().
 	 * Cyclomatic Complexity: 5
-	 *
 	 * Path 1: Input 'n'.
 	 */
 	@Test
