@@ -116,8 +116,7 @@ public abstract class Ship implements IShip
 		this.pos = Objects.requireNonNull(pos, "Ship's position must not be null");
 	
 		this.category = category;
-        this.pos = pos;
-		this.size = size;
+        this.size = size;
 
 		positions = new ArrayList<>();
     }
