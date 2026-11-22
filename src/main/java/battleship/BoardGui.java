@@ -8,9 +8,44 @@ import java.awt.*;
 
 public class BoardGui {
 
+    private static final int WINDOW_SIZE = 500;
+    private static final int GRID_GAP = 2;
+    private static final int BORDER_PADDING = 10;
+
     public static void showBoard(Game game) {
         FlatLightLaf.setup();
 
+        char[][] map = buildBoardMap(game);
+
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Batalha Naval - Tabuleiro");
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.setSize(WINDOW_SIZE, WINDOW_SIZE);
+            frame.setLocationRelativeTo(null);
+
+            JPanel grid = new JPanel(new GridLayout(Game.BOARD_SIZE + 1, Game.BOARD_SIZE + 1, GRID_GAP, GRID_GAP));
+            grid.setBorder(BorderFactory.createEmptyBorder(BORDER_PADDING, BORDER_PADDING, BORDER_PADDING, BORDER_PADDING));
+
+            grid.add(new JLabel("", SwingConstants.CENTER));
+            for (int c = 1; c <= Game.BOARD_SIZE; c++) {
+                grid.add(new JLabel(String.valueOf(c), SwingConstants.CENTER));
+            }
+
+            for (int r = 0; r < Game.BOARD_SIZE; r++) {
+                grid.add(new JLabel(String.valueOf((char) ('A' + r)), SwingConstants.CENTER));
+                for (int c = 0; c < Game.BOARD_SIZE; c++) {
+                    char symbol = map[r][c];
+                    JLabel cell = createStyledCell(symbol);
+                    grid.add(cell);
+                }
+            }
+
+            frame.add(grid);
+            frame.setVisible(true);
+        });
+    }
+
+    private static char[][] buildBoardMap(Game game) {
         char[][] map = new char[Game.BOARD_SIZE][Game.BOARD_SIZE];
         for (int r = 0; r < Game.BOARD_SIZE; r++)
             for (int c = 0; c < Game.BOARD_SIZE; c++)
@@ -37,33 +72,7 @@ public class BoardGui {
                 }
             }
         }
-
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Batalha Naval - Tabuleiro");
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.setSize(500, 500);
-            frame.setLocationRelativeTo(null);
-
-            JPanel grid = new JPanel(new GridLayout(Game.BOARD_SIZE + 1, Game.BOARD_SIZE + 1, 2, 2));
-            grid.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-            grid.add(new JLabel("", SwingConstants.CENTER));
-            for (int c = 1; c <= Game.BOARD_SIZE; c++) {
-                grid.add(new JLabel(String.valueOf(c), SwingConstants.CENTER));
-            }
-
-            for (int r = 0; r < Game.BOARD_SIZE; r++) {
-                grid.add(new JLabel(String.valueOf((char) ('A' + r)), SwingConstants.CENTER));
-                for (int c = 0; c < Game.BOARD_SIZE; c++) {
-                    char symbol = map[r][c];
-                    JLabel cell = createStyledCell(symbol);
-                    grid.add(cell);
-                }
-            }
-
-            frame.add(grid);
-            frame.setVisible(true);
-        });
+        return map;
     }
 
     private static @NotNull JLabel createStyledCell(char symbol) {
